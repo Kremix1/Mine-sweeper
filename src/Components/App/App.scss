@@ -1,0 +1,62 @@
+.App{
+  width: 400px;
+  background: #c2c2c2;
+  padding: 16px;
+  border-width: 4px;
+  border-style: solid;
+  border-right-color: #999;
+  border-bottom-color: #999;
+  border-left-color: white;
+  border-top-color: white;
+}
+
+.header{
+  background: #c0c0c0;
+  padding: 10px 12px;
+  border-width: 4px;
+  border-style: solid;
+  border-right-color: white;
+  border-bottom-color: white;
+  border-left-color: #7b7b7b;
+  border-top-color: #7b7b7b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.body{
+  margin: 16px 0 0 0;
+  border-width: 4px;
+  border-style: solid;
+  border-right-color: white;
+  border-bottom-color: white;
+  border-left-color: #7b7b7b;
+  border-top-color: #7b7b7b;
+  display: grid;
+  grid-template-rows: repeat(16, 1fr);
+  grid-template-columns: repeat(16, 1fr);
+}
+
+.face{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &_smile{
+    background: url("../../../public/images/minesweeper.png") -1px -49px/550% no-repeat;
+  }
+  &_press{
+    background: url("../../../public/images/minesweeper.png") -54px -48px/550% no-repeat;
+  }
+  &_oh{
+    background: url("../../../public/images/minesweeper.png") -108px -49px/550% no-repeat;
+  }
+  &_cool{
+    background: url("../../../public/images/minesweeper.png") -161px -49px/550% no-repeat;
+  }
+  &_dead{
+    background: url("../../../public/images/minesweeper.png") -215px -49px/550% no-repeat;
+  }
+}
