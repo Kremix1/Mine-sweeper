@@ -66,6 +66,8 @@ export const App: React.FC = () => {
                 value={cell.value}
                 setFace={setFace}
                 live={live}
+                cells={cells}
+                setCells={setCells}
                 setLive={setLive}
                 onClick={handleCellClick}
                 onContext={handleCellContext}

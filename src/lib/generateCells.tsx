@@ -1,5 +1,6 @@
 import {MAX_COLS, MAX_ROWS, NO_OF_BOMBS} from "../constants/constants";
 import {Cell, CellState, CellValue} from "../types/types";
+import {grabAllAdjacentCells} from "./grabAllAdjacentCells";
 
 export const generateCells = (): Cell[][] => {
     let cells: Cell[][] = [];
@@ -48,37 +49,40 @@ export const generateCells = (): Cell[][] => {
                 continue;
 
             let numberOfBombs = 0;
-            const topLeftBomb = rowIndex > 0 && colIndex > 0 ? cells[rowIndex - 1][colIndex - 1] : null;
-            const topBomb = rowIndex > 0 ? cells[rowIndex - 1][colIndex] : null;
-            const topRightBomb = rowIndex > 0 && colIndex < MAX_COLS - 1 ? cells[rowIndex - 1][colIndex + 1] : null;
-            const leftBomb = colIndex > 0 ? cells[rowIndex][colIndex - 1] : null;
-            const rightBomb = colIndex < MAX_COLS - 1 ? cells[rowIndex][colIndex + 1]: null;
-            const bottomLeftBomb = rowIndex < MAX_ROWS - 1 && colIndex > 0 ? cells[rowIndex + 1][colIndex - 1]: null;
-            const bottomBomb = rowIndex < MAX_ROWS - 1 ? cells[rowIndex + 1][colIndex] : null;
-            const bottomRightBomb = rowIndex < MAX_ROWS - 1 && colIndex < MAX_COLS - 1 ? cells[rowIndex + 1][colIndex + 1] : null;
+            const { topLeftCell, topCell, topRightCell,
+                leftCell, rightCell, bottomLeftCell,
+                bottomCell, bottomRightCell } = grabAllAdjacentCells(cells, rowIndex, colIndex);
 
-            if(topLeftBomb?.value === CellValue.bomb)
+            if (topLeftCell?.value === CellValue.bomb) {
                 numberOfBombs++;
-            if(topBomb?.value === CellValue.bomb)
+            }
+            if (topCell?.value === CellValue.bomb) {
                 numberOfBombs++;
-            if(topRightBomb?.value === CellValue.bomb)
+            }
+            if (topRightCell?.value === CellValue.bomb) {
                 numberOfBombs++;
-            if(leftBomb?.value === CellValue.bomb)
-                numberOfBombs++
-            if(rightBomb?.value === CellValue.bomb)
-                numberOfBombs++
-            if(bottomLeftBomb?.value === CellValue.bomb)
-                numberOfBombs++
-            if(bottomBomb?.value === CellValue.bomb)
-                numberOfBombs++
-            if(bottomRightBomb?.value === CellValue.bomb)
-                numberOfBombs++
+            }
+            if (leftCell?.value === CellValue.bomb) {
+                numberOfBombs++;
+            }
+            if (rightCell?.value === CellValue.bomb) {
+                numberOfBombs++;
+            }
+            if (bottomLeftCell?.value === CellValue.bomb) {
+                numberOfBombs++;
+            }
+            if (bottomCell?.value === CellValue.bomb) {
+                numberOfBombs++;
+            }
+            if (bottomRightCell?.value === CellValue.bomb) {
+                numberOfBombs++;
+            }
 
-            if(numberOfBombs > 0){
+            if (numberOfBombs > 0) {
                 cells[rowIndex][colIndex] = {
                     ...currentCell,
                     value: numberOfBombs
-                }
+                };
             }
         }
     }
