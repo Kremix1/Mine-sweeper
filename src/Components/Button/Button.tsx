@@ -1,8 +1,8 @@
 import './button.scss'
 import {CellState, CellValue, Face} from "../../types/types";
-import React, {memo, SetStateAction} from "react";
+import React, {Dispatch, memo, SetStateAction} from "react";
 import {stylizeCloseBombCells} from "../../lib/stylizeCloseBombCells";
-import {handleCellClick} from "../../lib/handleCellClick";
+import {handleCellPress} from "../../lib/handleCellPress";
 
 interface ButtonProps{
     row: number,
@@ -10,9 +10,18 @@ interface ButtonProps{
     state: CellState,
     value: CellValue,
     setFace: React.Dispatch<SetStateAction<Face>>
+    live: boolean,
+    setLive: Dispatch<SetStateAction<boolean>>
+    onClick(rowParam: number,
+            colParam: number,
+            live: boolean,
+            setLive: Dispatch<SetStateAction<boolean>>): (...args: any[]) => void;
+    onContext(rowParam: number, colParam: number): (...args: any[]) => void;
 }
 
-export const Button: React.FC<ButtonProps> = memo(({row, col, state, value, setFace}) => {
+export const Button: React.FC<ButtonProps> = memo(({row, col, state, value,
+                                                            setFace, onContext, onClick,
+                                                            live, setLive}) => {
 
     const renderContent = (): React.ReactNode => {
         if(state === CellState.visible){
@@ -30,8 +39,10 @@ export const Button: React.FC<ButtonProps> = memo(({row, col, state, value, setF
     return (
         <div
             className={`button ${state === CellState.visible ? 'button_visible' : ''}`}
-            onMouseDown={(e) => handleCellClick(e, setFace)}
-            onMouseUp={(e) => handleCellClick(e, setFace)}
+            onMouseDown={(e) => handleCellPress(e, setFace)}
+            onMouseUp={(e) => handleCellPress(e, setFace)}
+            onClick={onClick(row, col, live, setLive)}
+            onContextMenu={onContext(row,col)}
         >
             {renderContent()}
         </div>

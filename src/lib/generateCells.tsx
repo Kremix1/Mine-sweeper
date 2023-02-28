@@ -16,6 +16,7 @@ export const generateCells = (): Cell[][] => {
     }
 
     //Случайно создаём бомбы количеством NO_OF_BOMBS
+    //TODO: Создание бомб после нажатия на поле
     let bombsPlaced = 0;
     while(bombsPlaced < NO_OF_BOMBS){
         const randomRow = Math.floor(Math.random() * MAX_ROWS);

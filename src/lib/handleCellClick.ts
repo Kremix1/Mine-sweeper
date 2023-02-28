@@ -1,13 +1,8 @@
-import React, {SetStateAction} from "react";
-import {Face} from "../types/types";
+import {Dispatch, SetStateAction} from "react";
 
-export const handleCellClick = (e: React.MouseEvent, setFace: React.Dispatch<SetStateAction<Face>>): void => {
-    switch (e.type){
-        case 'mousedown':
-            setFace(Face.scared)
-            break;
-        case 'mouseup':
-            setFace(Face.smile)
-            break;
+export const handleCellClick = (rowParam: number, colParam: number, live: boolean, setLive: Dispatch<SetStateAction<boolean>>) => (): void => {
+    //Начало игры
+    if(!live){
+        setLive(true);
     }
-}
+};

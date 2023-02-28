@@ -14,21 +14,27 @@
     background: url("../../../public/images/minesweeper.png") -35px -103px/920% no-repeat;
   }
   &_flag{
-    background: url("../../../public/images/minesweeper.png") -50px -75px/920% no-repeat;
+    border: 0;
+    background: url("../../../public/images/minesweeper.png") -73px -106px/920% no-repeat;
   }
   &_question{
+    border: 0;
     background: url("../../../public/images/minesweeper.png") -75px -75px/920% no-repeat;
   }
   &_question-selected{
+    border: 0;
     background: url("../../../public/images/minesweeper.png") -100px -75px/920% no-repeat;
   }
   &_bomb{
+    border: 0;
     background: url("../../../public/images/minesweeper.png") -125px -75px/920% no-repeat;
   }
   &_bomb-red{
+    border: 0;
     background: url("../../../public/images/minesweeper.png") -150px -75px/920% no-repeat;
   }
   &_bomb-block{
+    border: 0;
     background: url("../../../public/images/minesweeper.png") -175px -75px/920% no-repeat;
   }
 }
