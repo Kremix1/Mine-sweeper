@@ -1,0 +1,62 @@
+@import "../../styles/styles";
+
+
+.button{
+  @include borders;
+  width: 30px;
+  height: 30px;
+  &:active{
+    border: 0;
+    background: url("../../../public/images/minesweeper.png") -35px -103px/920% no-repeat;
+  }
+  &_visible{
+    border: 0;
+    background: url("../../../public/images/minesweeper.png") -35px -103px/920% no-repeat;
+  }
+  &_flag{
+    background: url("../../../public/images/minesweeper.png") -50px -75px/920% no-repeat;
+  }
+  &_question{
+    background: url("../../../public/images/minesweeper.png") -75px -75px/920% no-repeat;
+  }
+  &_question-selected{
+    background: url("../../../public/images/minesweeper.png") -100px -75px/920% no-repeat;
+  }
+  &_bomb{
+    background: url("../../../public/images/minesweeper.png") -125px -75px/920% no-repeat;
+  }
+  &_bomb-red{
+    background: url("../../../public/images/minesweeper.png") -150px -75px/920% no-repeat;
+  }
+  &_bomb-block{
+    background: url("../../../public/images/minesweeper.png") -175px -75px/920% no-repeat;
+  }
+}
+
+.close-bomb{
+  height: 30px;
+  &_1{
+    background: url("../../../public/images/minesweeper.png") -1px -136.5px/920% no-repeat;
+  }
+  &_2{
+    background: url("../../../public/images/minesweeper.png") -35px -136.5px/920% no-repeat;
+  }
+  &_3{
+    background: url("../../../public/images/minesweeper.png") -69px -136.5px/920% no-repeat;
+  }
+  &_4{
+    background: url("../../../public/images/minesweeper.png") -103px -136.5px/920% no-repeat;
+  }
+  &_5{
+    background: url("../../../public/images/minesweeper.png") -137px -136.5px/920% no-repeat;
+  }
+  &_6{
+    background: url("../../../public/images/minesweeper.png") -171px -136.5px/920% no-repeat;
+  }
+  &_7{
+    background: url("../../../public/images/minesweeper.png") -205px -136.5px/920% no-repeat;
+  }
+  &_8{
+    background: url("../../../public/images/minesweeper.png") -239px -136.5px/920% no-repeat;
+  }
+}
