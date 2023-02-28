@@ -5,23 +5,22 @@
   width: fit-content;
   background: #c2c2c2;
   padding: 16px;
-}
+  .header{
+    @include borders(#7b7b7b, white);
+    background: #c0c0c0;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.header{
-  @include borders(#7b7b7b, white);
-  background: #c0c0c0;
-  padding: 10px 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.body{
-  @include borders(#7b7b7b, white);
-  margin: 16px 0 0 0;
-  display: grid;
-  grid-template-rows: repeat(16, 1fr);
-  grid-template-columns: repeat(16, 1fr);
+  .body{
+    @include borders(#7b7b7b, white);
+    margin: 16px 0 0 0;
+    display: grid;
+    grid-template-rows: repeat(16, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+  }
 }
 
 .face{
@@ -31,13 +30,13 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  &:active{
+    background: url("../../../public/images/minesweeper.png") -54px -48px/550% no-repeat;
+  }
   &_smile{
     background: url("../../../public/images/minesweeper.png") -1px -49px/550% no-repeat;
   }
-  &_press{
-    background: url("../../../public/images/minesweeper.png") -54px -48px/550% no-repeat;
-  }
-  &_oh{
+  &_scared{
     background: url("../../../public/images/minesweeper.png") -108px -49px/550% no-repeat;
   }
   &_cool{

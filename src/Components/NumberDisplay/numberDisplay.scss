@@ -4,4 +4,22 @@
   color: #ff0101;
   background: black;
   font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1px;
+  &__item{
+    height: 100%;
+    width: 26px;
+    overflow: hidden;
+  }
+  .hundredths{
+
+  }
+  .tenths{
+
+  }
+  .units{
+    background: seagreen;
+  }
 }
