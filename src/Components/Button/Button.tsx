@@ -12,7 +12,7 @@ interface ButtonProps{
 
 export const Button: React.FC<ButtonProps> = ({row, col, state, value}) => {
     const renderContent = (): React.ReactNode => {
-        if(state === CellState.open){
+        if(state === CellState.visible){
             if(value === CellValue.bomb){
                 return <div className='button button_bomb'></div>
             } else if(value === CellValue.none)
@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({row, col, state, value}) => {
     };
 
     return (
-        <div className={`button ${state === CellState.open ? 'button_visible' : ''}`}>
+        <div className={`button ${state === CellState.visible ? 'button_visible' : ''}`}>
             {renderContent()}
         </div>
     );
