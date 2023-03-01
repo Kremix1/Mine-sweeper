@@ -13,14 +13,16 @@ export const App: React.FC = () => {
     const [time, setTime] = useState<number>(0);
     const [live, setLive] = useState(false);
     const [bombCounter, setBombCounter] = useState(NO_OF_BOMBS)
+    const [dead, setDead] = useState<boolean>(false)
+    const [hasWon, setHasWon] = useState<boolean>(false)
     const handleFaceClick = (): void => {
-        //TODO: Сделать, чтобы сбросить игру можно было всегда (Убрать is(live))
-        if(live){
-            setLive(false);
-            setTime(0);
-            setCells(generateCells());
-            setBombCounter(NO_OF_BOMBS)
-        }
+        setLive(false);
+        setTime(0);
+        setCells(generateCells());
+        setBombCounter(NO_OF_BOMBS)
+        setDead(false)
+        setFace(Face.smile)
+        setHasWon(false)
     }
     const handleCellContext = (rowParam: number, colParam: number) =>
         (e: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -54,6 +56,18 @@ export const App: React.FC = () => {
             }
         }
     }, [live, time])
+    useEffect(() => {
+        if(dead){
+            setLive(false)
+            setFace(Face.dead)
+        }
+    }, [dead])
+    useEffect(() => {
+        if(hasWon){
+            setLive(false);
+            setFace(Face.cool);
+        }
+    },[hasWon]);
 
     //TODO: Передавать число в формате строки 0 0 1 - 0 2 3
     const renderCells = (): React.ReactNode => {
@@ -64,11 +78,14 @@ export const App: React.FC = () => {
                 col={colIndex}
                 state={cell.state}
                 value={cell.value}
+                exploded={cell.exploded}
                 setFace={setFace}
                 live={live}
                 cells={cells}
                 setCells={setCells}
                 setLive={setLive}
+                setDead={setDead}
+                setHasWon={setHasWon}
                 onClick={handleCellClick}
                 onContext={handleCellContext}
             />
