@@ -73,7 +73,6 @@ export const App: React.FC = () => {
         }
     },[hasWon]);
 
-    //TODO: Передавать число в формате строки 0 0 1 - 0 2 3
     const renderCells = (): React.ReactNode => {
         return cells.map((row, rowIndex) => row.map((cell, colIndex) =>
             <Button

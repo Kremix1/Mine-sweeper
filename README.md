@@ -10,7 +10,7 @@
 
 ### `npm run build`
 
-Билдит приложение в папку `build`.\
+Билдит приложение в папку `build`.
 
 ## Скриношоты игры:
 <img src="public/images/start.png" w="200">\

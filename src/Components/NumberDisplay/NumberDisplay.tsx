@@ -7,15 +7,15 @@ interface NumberDisplayProps {
     value: number;
     setValue?: Dispatch<SetStateAction<number>>
 }
-export const NumberDisplay: React.FC<NumberDisplayProps> = memo(({value, setValue}) => {
+export const NumberDisplay: React.FC<NumberDisplayProps> = memo(({value}) => {
     const [hundredths, setHundredths] = useState<string>('')
     const [tenths, setTenths] = useState<string>('')
     const [units, setUnits] = useState<string>('')
-    let valueToArray = (Array.from(value.toString(),String))
+    let valueToArray = Array.from(value.toString().padStart(3, "0"))
     useEffect(() => {
-        setHundredths(valueToArray[0] ? valueToArray[0] : '0')
-        setTenths(valueToArray[1] ? valueToArray[1] : '0')
-        setUnits(valueToArray[2] ? valueToArray[2] : '0')
+        setHundredths(valueToArray[0])
+        setTenths(valueToArray[1])
+        setUnits(valueToArray[2])
     }, [value])
 
 
