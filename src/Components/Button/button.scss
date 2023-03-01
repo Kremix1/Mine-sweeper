@@ -2,6 +2,7 @@
 
 
 .button{
+  overflow: hidden;
   @include borders;
   width: 30px;
   height: 30px;
@@ -19,7 +20,7 @@
   }
   &_question{
     border: 0;
-    background: url("../../../public/images/minesweeper.png") -75px -75px/920% no-repeat;
+    background: url("../../../public/images/minesweeper.png") -105px -104px/905% no-repeat;
   }
   &_question-selected{
     border: 0;

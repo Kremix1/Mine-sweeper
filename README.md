@@ -1,20 +1,18 @@
-# Getting Started with Create React App
+# Онлайн-игра Сапер
+## Стек: React, TypeScript, SASS
+## Доступные скрипты
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
+### Данный проект можно запустить используя команду:
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Запускает приложение в dev моде \
+Откройте [http://localhost:3000](http://localhost:3000) чтобы посмотреть в браузере.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Билдит приложение в папку `build`.\
+
+## Скриношоты игры:
+<img src="public/images/start.png" w="200">\
+<img src="public/images/lose.png" w="200">\
+<img src="public/images/win.png" w="200">

@@ -42,6 +42,8 @@ export const Button: React.FC<ButtonProps> = memo(({row, col, state, value, expl
             return <div className={stylizeCloseBombCells(value)}></div>;
         } else if (state === CellState.flagged) {
             return <div className='button button_flag'></div>
+        } else if (state === CellState.question) {
+            return <div className='button button_question'></div>
         }
         return null;
     };

@@ -7,7 +7,7 @@ interface NumberDisplayProps {
     value: number;
     setValue?: Dispatch<SetStateAction<number>>
 }
-export const NumberDisplay: React.FC<NumberDisplayProps> = memo(({value, setValue}) => { //TODO: Мемоизировать лишние рендеры на ячейках игры!!!!
+export const NumberDisplay: React.FC<NumberDisplayProps> = memo(({value, setValue}) => {
     const [hundredths, setHundredths] = useState<string>('')
     const [tenths, setTenths] = useState<string>('')
     const [units, setUnits] = useState<string>('')

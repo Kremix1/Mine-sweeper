@@ -39,9 +39,13 @@ export const App: React.FC = () => {
                 setCells(currentCells)
                 setBombCounter(bombCounter - 1)
             }else if(currentCell.state === CellState.flagged){
-                currentCells[rowParam][colParam].state = CellState.open;
-
+                currentCells[rowParam][colParam].state = CellState.question;
+                setCells(currentCells)
                 setBombCounter(bombCounter + 1)
+            }
+            else if(currentCell.state === CellState.question){
+                currentCells[rowParam][colParam].state = CellState.open;
+                setCells(currentCells)
             }
     };
 
